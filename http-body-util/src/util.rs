@@ -24,6 +24,7 @@ impl<T: Buf> BufList<T> {
 impl<T: Buf> Buf for BufList<T> {
     #[inline]
     fn remaining(&self) -> usize {
+        println!("calculating remaining for {} bufs", self.bufs.len());
         self.bufs.iter().map(|buf| buf.remaining()).sum()
     }
 
